@@ -11,11 +11,16 @@ the tree.
 
 The program will ask you to write the algebraic expression you want to differentiate.
 
-NOTE: DON'T USE SPACES IN THE EXPRESSION & EVERY VARIABLE MUST BE LOWER CASE.
-(SCREEN SHOT)
+You will have the option to:
+![alttext]()
 
-You will have the option to: // Maybe
-(A couple of options.) // Maybe
+IMPORTANT NOTES:
+-     DON'T USE SPACES IN THE EXPRESSION
+-     EVERY VARIABLE MUST BE LOWER CASE.
+-     CONSTANTS ARE WRITTEN IN UPPER CASE.
+
+
+
 
 ##HOW DOES THE DIFFERENTIATION WORKS?
 
