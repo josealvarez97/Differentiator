@@ -76,3 +76,8 @@ IMPORTANT NOTES:
 
 - The differentiator can differentiate an equation IMPLICITELY with respect to x.
 ![alttext](https://github.com/josealvarez97/Differentiator/blob/master/ScreenShots/Implicita.PNG)
+
+
+###REFERENCES
+1.    http://www.cs.cmu.edu/~clo/www/CMU/DataStructures/Lessons/lesson4_2.htm
+2.    https://en.wikipedia.org/wiki/Binary_search_tree
