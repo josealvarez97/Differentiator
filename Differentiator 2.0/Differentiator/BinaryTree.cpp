@@ -140,20 +140,21 @@ string CBinaryTree::IndicatedDifferentiation()
 
 string CBinaryTree::CleanDifferentiation()
 {
+	// Differentiate as always, but using only parenthesis. (Not "[]")
 	string cleanDif = CleanDifferentiation(this->strRoot);
-	cout << "( CleanDifferentiation: " << cleanDif << " )" << endl;
+	//cout << "( CleanDifferentiation: " << cleanDif << " )" << endl;
 	CExpression::CheckParenthesis(cleanDif);
 
+	// ERASE ANY BLANK SPACE (" ")
 	cleanDif.erase(remove_if(cleanDif.begin(), cleanDif.end(), isspace), cleanDif.end());
 	CExpression::CheckParenthesis(cleanDif);
 
-	//cleanDif.erase(remove_if(cleanDif.begin(), cleanDif.end(), isspace));
-	//CExpression::CheckParenthesis(cleanDif);
-
-
+	// CONVERT THE DERIVATIVE TO PREFIX EXPRESSION 
 	CExpression::CheckParenthesis(cleanDif);
 	cleanDif = CExpression::toPrefix(cleanDif);
-	cout << "( CleanDifferentiation Prefix: " << cleanDif << " )" << endl;
+	//cout << "( CleanDifferentiation Prefix: " << cleanDif << " )" << endl;
+
+	// CONVERT PREFIX EXPRESSION TO EXPRESSION_BINARY_TREE AND THEN ASSIGN PRINT_TREE() (an string) TO CLEAN_DIF
 	cleanDif = this->printTree(STRING_TREE, prefixToBinaryTreeNode(cleanDif));
 	return cleanDif;
 
@@ -161,7 +162,7 @@ string CBinaryTree::CleanDifferentiation()
 	//std::string alo = "alo";
 
 	//hola = alo;
-	
+
 }
 
 string CBinaryTree::Differentiate(BinaryTreeStrNode * node)
@@ -198,7 +199,39 @@ string CBinaryTree::Differentiate(BinaryTreeStrNode * node)
 
 string CBinaryTree::ImplicitDifferentiation(BinaryTreeStrNode * node)
 {
-	return string();
+	if (node->value == "+")
+		return ImplicitDifferentiation(node->left) + "+" + ImplicitDifferentiation(node->right);
+	else if (node->value == "-")
+		return ImplicitDifferentiation(node->left) + "-" + ImplicitDifferentiation(node->right);
+	else if (node->value == "*")
+		return "(" + ImplicitDifferentiation(node->left) + " )*(" + this->printTree(STRING_TREE, node->right) + ") + (" + this->printTree(STRING_TREE, node->left) + ")*(" + ImplicitDifferentiation(node->right) + ")";
+	else if (node->value == "/")
+		return "[(" + ImplicitDifferentiation(node->left) + " )(" + this->printTree(STRING_TREE, node->right) + ") - (" + this->printTree(STRING_TREE, node->left) + ")(" + ImplicitDifferentiation(node->right) + ")] / [(" + this->printTree(STRING_TREE, node->right) + ")^ 2 ]";
+	else if (node->value == "^") // validar para y
+	{
+		if (node->left->value == "y")
+			return"(" + this->printTree(STRING_TREE, node->right) + ") * (" + this->printTree(STRING_TREE, node->left) + ") ^ ( " + CExpression::operate("-", node->right->value, "1") + " ) * (dy/dx)";
+		else
+			return"(" + this->printTree(STRING_TREE, node->right) + ") * (" + this->printTree(STRING_TREE, node->left) + ") ^ ( " + CExpression::operate("-", node->right->value, "1") + " )";
+	}
+	else if (node->value == "S")
+		return "cos( " + this->printTree(STRING_TREE, node->left) + ")( " + ImplicitDifferentiation(node->left) + " )";
+	else if (node->value == "C")
+		return "-sen( " + this->printTree(STRING_TREE, node->left) + ")( " + ImplicitDifferentiation(node->left) + " )";
+	else if (node->value == "T")
+		return "sec^2( " + this->printTree(STRING_TREE, node->left) + ")( " + ImplicitDifferentiation(node->left) + " )";
+	else if (node->value == "~")
+		return "~" + Differentiate(node->left);
+	else if (node->value == "x")
+		return "1";
+	else if (expreessionObj->isDigit(node->value) == true)
+		return "(0)";
+	else if (node->value == "=")
+		return ImplicitDifferentiation(node->left) + " = " + ImplicitDifferentiation(node->right);
+	else if (node->value == "y")
+		return "(dy/dx)";
+	else
+		return "(Something went wrong...)";
 }
 
 string CBinaryTree::IndicatedDifferentiation(BinaryTreeStrNode * node)
@@ -231,6 +264,8 @@ string CBinaryTree::IndicatedDifferentiation(BinaryTreeStrNode * node)
 		return "dy/dx[" + this->printTree(STRING_TREE, node) + "]";
 	else if (node->value == "=")
 		return IndicatedDifferentiation(node->left) + " = " + IndicatedDifferentiation(node->right);
+	else if (node->value == "y")
+		return "(dy/dx)";
 	else
 		return "(Something went wrong...)";
 }
@@ -253,15 +288,15 @@ string CBinaryTree::CleanDifferentiation(BinaryTreeStrNode * node)
 	else if (node->value == "C")
 		return "~S( " + this->printTree(STRING_TREE, node->left) + ")*( " + CleanDifferentiation(node->left) + " )";
 	else if (node->value == "T")
-		return "S^2( " + this->printTree(STRING_TREE, node->left) + ")*( " + CleanDifferentiation(node->left) + " )";
+		return "(S( " + this->printTree(STRING_TREE, node->left) + ")^2)*( " + CleanDifferentiation(node->left) + " )";
 	else if (node->value == "~")
 		return "~" + CleanDifferentiation(node->left);
 	else if (node->value == "x")
 		return "1";
 	else if (expreessionObj->isDigit(node->value) == true)
 		return "(0)";
-	//else if (node->value == "=")
-	//	return CleanDifferentiation(node->left) + " = " + CleanDifferentiation(node->right);
+	else if (node->value == "=")
+		return CleanDifferentiation(node->left) + " = " + CleanDifferentiation(node->right);
 	else
 		return "(Something went wrong...)";
 }

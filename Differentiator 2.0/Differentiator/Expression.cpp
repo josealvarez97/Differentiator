@@ -211,7 +211,7 @@ bool CExpression::isDigit(string op)
 
 bool CExpression::isVariable(string op)
 {
-	const string variables = "x";
+	const string variables = "xy";
 	return variables.find(op) != string::npos;
 }
 
