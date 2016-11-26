@@ -6,19 +6,19 @@ expression, we can recursivitely differentiate each node by applying the
 respective differentiation rule to the root, and consequently to each node of 
 the tree.
 
+![alttext](https://github.com/josealvarez97/Differentiator/blob/master/ScreenShots/Detallada.PNG)
 
 ##(INSTRUCTIONS FOR RUNNING THE PROGRAM)
 
 The program will ask you to write the algebraic expression you want to differentiate.
 
 You will have the option to:
-![alttext]()
+![alttext](https://github.com/josealvarez97/Differentiator/blob/master/ScreenShots/Options.PNG)
 
 IMPORTANT NOTES:
 -     DON'T USE SPACES IN THE EXPRESSION
 -     EVERY VARIABLE MUST BE LOWER CASE.
 -     CONSTANTS ARE WRITTEN IN UPPER CASE.
-
 
 
 
@@ -68,10 +68,10 @@ IMPORTANT NOTES:
 
 ###EXTRAS
 
-- The differentiator can show an indicated differentiation.
-(Screen)
-- The differetiator can show a clean differentiation. (No parenthesis)
-(Screen)
+- The differentiator can show an INDICATED differentiation.
+![alttext](https://github.com/josealvarez97/Differentiator/blob/master/ScreenShots/Options.PNG)
+- The differetiator can show a CLEAN differentiation. (No parenthesis)
+![alttext](https://github.com/josealvarez97/Differentiator/blob/master/ScreenShots/Indicada.PNG)
 
-- The differentiator can differentiate an equation implicitely with respect to x.
-(Screen)
+- The differentiator can differentiate an equation IMPLICITELY with respect to x.
+![alttext](https://github.com/josealvarez97/Differentiator/blob/master/ScreenShots/Implicita.PNG)
