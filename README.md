@@ -13,6 +13,7 @@ the tree.
 The program will ask you to write the algebraic expression you want to differentiate.
 
 You will have the option to:
+
 ![alttext](https://github.com/josealvarez97/Differentiator/blob/master/ScreenShots/Options.PNG)
 
 IMPORTANT NOTES:
