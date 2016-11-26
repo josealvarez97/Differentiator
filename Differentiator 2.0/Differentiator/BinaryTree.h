@@ -1,6 +1,18 @@
 #pragma once
 #include <string>
 #include "Expression.h"
+#include <fstream>
+#include <stdlib.h>
+#include <algorithm> 
+
+#include <iostream>
+#include <string>
+#include <fstream>
+#include <stdlib.h>
+#include <algorithm> 
+#include <functional> 
+#include <cctype>
+#include <locale>
 enum treeType {STRING_TREE, INT_TREE};
 
 
@@ -38,7 +50,7 @@ public:
 	BinaryTreeIntNode* GetNodePtr(int value); // it's not that usefull for numbers...
 	
 public:
-	static BinaryTreeStrNode* prefixToBinaryTree(string prefix);
+	static BinaryTreeStrNode* prefixToBinaryTreeNode(string prefix);
 
 private:
 	static BinaryTreeStrNode* prefixToBinaryTree_(string prefix);
@@ -65,10 +77,14 @@ public:
 	string ImplicitDifferentiation();
 	string IndicatedDifferentiation();
 
+	string CleanDifferentiation();
+
 private:
 	string Differentiate(BinaryTreeStrNode* node);
 	string ImplicitDifferentiation(BinaryTreeStrNode* node);
 	string IndicatedDifferentiation(BinaryTreeStrNode* node);
+	string CleanDifferentiation(BinaryTreeStrNode* node);
+
 
 
 

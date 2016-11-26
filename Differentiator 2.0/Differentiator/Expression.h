@@ -22,5 +22,10 @@ public:
 	
 	CExpression();
 	~CExpression();
+
+	static bool CheckParenthesis(string expression);
+
+
+
 };
 

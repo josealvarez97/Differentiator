@@ -11,6 +11,31 @@ CExpression::~CExpression()
 {
 }
 
+bool CExpression::CheckParenthesis(string expression)
+{
+	//if(expression.find("(") != string::npos && ) 
+	//	return true; // Ok cause it doesn't have parenthesis
+
+	int openingParenthesisCount = 0;
+	int closingParenthesisCount = 0;
+	for (int i = 0; i < expression.size(); i++)
+	{
+		if (expression.substr(i, 1) == "(")
+			openingParenthesisCount++;
+		if (expression.substr(i, 1) == ")")
+			closingParenthesisCount++;
+	}
+
+	if (openingParenthesisCount == closingParenthesisCount)
+		return true;
+	else
+		return false;
+
+
+
+
+}
+
 string CExpression::toPostFix(string exp)
 {
 	string postfix = ""; // just the variable we'll return later
@@ -136,23 +161,25 @@ int CExpression::hierarchy(string op)
 {
 	if (op == ")")
 		return INTMAX_MAX;
-	if (op == "(")
+	else if (op == "(")
 		return INT_MIN;
-	if (op == "+" || op == "-")
+	else if (op == "+" || op == "-")
 		return 1;
-	if (op == "*" || op == "/")
+	else if (op == "*" || op == "/")
 		return 2;
-	if (op == "^" /*|| op == "^"*/)
+	else if (op == "^" /*|| op == "^"*/)
 		return 3;
-	if (op == "sin" || op == "cos" || op == "tan")
+	else if (op == "sin" || op == "cos" || op == "tan")
 		return 10;
-	if (op == "~")
+	else if (op == "~")
 		return 10;
+	else if (op == "=")
+		return 0;
 }
 
 bool CExpression::isOperator(string op)
 {
-	string operators = "~+-*/^()";
+	string operators = "+-*/^()=";
 	return operators.find(op) != string::npos;
 	// find returns -1 if it doesn't find the operator. npos is -1 by default
 	/*
@@ -228,6 +255,8 @@ string CExpression::operate(string op, string aExp, string bExp)
 	}
 
 
+	int prueba1 = round(c);
+	int prueba2 = round(c);
 
-	return to_string(c);
+ 	return to_string(prueba1);
 }

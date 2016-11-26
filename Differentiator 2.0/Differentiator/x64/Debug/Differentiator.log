@@ -1,7 +1,3 @@
-﻿  Expression.cpp
-c:\users\jjaa0\documents\github\differentiator\differentiator 2.0\differentiator\expression.cpp(69): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-c:\users\jjaa0\documents\github\differentiator\differentiator 2.0\differentiator\expression.cpp(138): warning C4305: 'return': truncation from '__int64' to 'int'
-c:\users\jjaa0\documents\github\differentiator\differentiator 2.0\differentiator\expression.cpp(138): warning C4309: 'return': truncation of constant value
-c:\users\jjaa0\documents\github\differentiator\differentiator 2.0\differentiator\expression.cpp(151): warning C4715: 'CExpression::hierarchy': not all control paths return a value
+﻿  BinaryTree.cpp
   Differentiator.vcxproj -> C:\Users\jjaa0\Documents\GitHub\Differentiator\Differentiator 2.0\x64\Debug\Differentiator.exe
   Differentiator.vcxproj -> C:\Users\jjaa0\Documents\GitHub\Differentiator\Differentiator 2.0\x64\Debug\Differentiator.pdb (Partial PDB)
