@@ -8,7 +8,7 @@ the tree.
 
 ![alttext](https://github.com/josealvarez97/Differentiator/blob/master/ScreenShots/Detallada.PNG)
 
-##(INSTRUCTIONS FOR RUNNING THE PROGRAM)
+## (INSTRUCTIONS FOR RUNNING THE PROGRAM)
 
 The program will ask you to write the algebraic expression you want to differentiate.
 
@@ -23,9 +23,9 @@ IMPORTANT NOTES:
 
 
 
-##HOW DOES THE DIFFERENTIATION WORKS?
+## HOW DOES THE DIFFERENTIATION WORKS?
 
-###BASIC ALGORITHM IDEA
+### BASIC ALGORITHM IDEA
 
 1. CALL DIFFERENTIATE FOR THE ROOT.
 2.    IF(node->value == AnyOperator)
@@ -33,18 +33,18 @@ IMPORTANT NOTES:
       Apply Differentiation Rule For the operator. Call PRINTTREE() and/or DIFFERENTIATE() when is necessary.
 3. In case node->value is constant return 0. Trivial case.
 
-##BASIC STRUCTURE
+## BASIC STRUCTURE
 
-###Data Structure Implemented
+### Data Structure Implemented
 
 - str Binary Tree
 
-###Principal Classes
+### Principal Classes
 
 - CExpression
 - CBinaryTree. Includes struct BinaryTreeStrNode. Str means string node.
 
-###Principal Methods
+### Principal Methods
 
 #### CExpression
 
@@ -67,7 +67,7 @@ IMPORTANT NOTES:
 - BinaryTreeStrNode PrefixToBinaryTree(string prefix) // returns an expression tree
 
 
-###EXTRAS
+### EXTRAS
 
 - The differentiator can show an INDICATED differentiation.
 ![alttext](https://github.com/josealvarez97/Differentiator/blob/master/ScreenShots/Options.PNG)
@@ -78,6 +78,6 @@ IMPORTANT NOTES:
 ![alttext](https://github.com/josealvarez97/Differentiator/blob/master/ScreenShots/Implicita.PNG)
 
 
-###REFERENCES
+### REFERENCES
 1.    http://www.cs.cmu.edu/~clo/www/CMU/DataStructures/Lessons/lesson4_2.htm
 2.    https://en.wikipedia.org/wiki/Binary_search_tree
